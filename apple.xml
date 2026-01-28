@@ -1,0 +1,786 @@
+<package xmlns="http://apple.com/itunes/importer" version="music5.3">
+    <language>en</language>
+    <provider>Merlin4</provider>
+    <album>
+        <vendor_id>PADPIDA2020020514E_7316478676986</vendor_id>
+        <genres>
+            <genre code="INSTRUMENTAL-00"></genre>
+        </genres>
+        <artists>
+            <artist>
+                <artist_name>Ellis Laifer</artist_name>
+                <apple_id>1463644847</apple_id>
+                <roles>
+                    <role>Performer</role>
+                </roles>
+                <primary>true</primary>
+            </artist>
+        </artists>
+        <copyright_pline>2024 Lofi Publishing</copyright_pline>
+        <copyright_cline>2024 Lofi Records</copyright_cline>
+        <label_name>Lofi Records</label_name>
+        <preorder_previews>true</preorder_previews>
+        <title>Sounds From My Room</title>
+        <title_version></title_version>
+        <upc>7316478676986</upc>
+        <original_release_date>2024-10-09</original_release_date>
+        <artwork_files>
+            <file>
+                <file_name>1e9c3c7b-75f1-4147-8e2d-5bec541848a0.jpg</file_name>
+                <size>364878</size>
+                <checksum type="md5">C71BF565E1C55C7990201AEF07D5FB9B</checksum>
+            </file>
+        </artwork_files>
+        <volume_count>1</volume_count>
+        <track_count>15</track_count>
+        <products>
+            <product>
+                <territory>WW</territory>
+                <cleared_for_sale>true</cleared_for_sale>
+                <cleared_for_stream>true</cleared_for_stream>
+                <cleared_for_itunes_radio>true</cleared_for_itunes_radio>
+                <wholesale_price_tier>3</wholesale_price_tier>
+                <default_track_wholesale_price_tier>100</default_track_wholesale_price_tier>
+                <sales_start_date>2024-10-09</sales_start_date>
+                <stream_start_date>2024-10-09</stream_start_date>
+            </product>
+        </products>
+        <tracks>
+            <track>
+                <products>
+                    <product>
+                        <territory>WW</territory>
+                        <cleared_for_sale>true</cleared_for_sale>
+                        <cleared_for_stream>true</cleared_for_stream>
+                        <cleared_for_itunes_radio>true</cleared_for_itunes_radio>
+                        <wholesale_price_tier>99</wholesale_price_tier>
+                    </product>
+                </products>
+                <genres>
+                    <genre code="INSTRUMENTAL-00"></genre>
+                </genres>
+                <artists>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <apple_id>1463644847</apple_id>
+                        <roles>
+                            <role>Performer</role>
+                        </roles>
+                        <primary>true</primary>
+                    </artist>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <roles>
+                            <role>Composer</role>
+                        </roles>
+                        <primary>false</primary>
+                    </artist>
+                </artists>
+                <publishers>
+                    <publisher>Lofi Publishing</publisher>
+                </publishers>
+                <isrc>UKZGC2408003</isrc>
+                <vendor_id>PADPIDA2020020514E_7316478676986_UKZGC2408003</vendor_id>
+                <copyright_pline>2024 Lofi Publishing</copyright_pline>
+                <explicit_content>none</explicit_content>
+                <label_name>Lofi Records</label_name>
+                <title>Cachuma</title>
+                <title_version></title_version>
+                <volume_number>1</volume_number>
+                <track_number>1</track_number>
+                <audio_file>
+                    <file_name>30b9c569-2dec-45c6-8645-4b4c556b0375.flac</file_name>
+                    <size>8924539</size>
+                    <checksum type="md5">D589B0273B3CE585A83323D2309671E7</checksum>
+                </audio_file>
+                <audio_language>zxx</audio_language>
+            </track>
+            <track>
+                <products>
+                    <product>
+                        <territory>WW</territory>
+                        <cleared_for_sale>true</cleared_for_sale>
+                        <cleared_for_stream>true</cleared_for_stream>
+                        <cleared_for_itunes_radio>true</cleared_for_itunes_radio>
+                        <wholesale_price_tier>99</wholesale_price_tier>
+                    </product>
+                </products>
+                <genres>
+                    <genre code="INSTRUMENTAL-00"></genre>
+                </genres>
+                <artists>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <apple_id>1463644847</apple_id>
+                        <roles>
+                            <role>Performer</role>
+                        </roles>
+                        <primary>true</primary>
+                    </artist>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <roles>
+                            <role>Composer</role>
+                        </roles>
+                        <primary>false</primary>
+                    </artist>
+                </artists>
+                <publishers>
+                    <publisher>Lofi Publishing</publisher>
+                </publishers>
+                <isrc>UKZGC2408004</isrc>
+                <vendor_id>PADPIDA2020020514E_7316478676986_UKZGC2408004</vendor_id>
+                <copyright_pline>2024 Lofi Publishing</copyright_pline>
+                <explicit_content>none</explicit_content>
+                <label_name>Lofi Records</label_name>
+                <title>Deep Blue</title>
+                <title_version></title_version>
+                <volume_number>1</volume_number>
+                <track_number>2</track_number>
+                <audio_file>
+                    <file_name>ad3d12ab-6f99-41c8-ad00-6f930f20b3cb.flac</file_name>
+                    <size>9737501</size>
+                    <checksum type="md5">97AF3B99C4013742521F2DC3B356827D</checksum>
+                </audio_file>
+                <audio_language>zxx</audio_language>
+            </track>
+            <track>
+                <products>
+                    <product>
+                        <territory>WW</territory>
+                        <cleared_for_sale>true</cleared_for_sale>
+                        <cleared_for_stream>true</cleared_for_stream>
+                        <cleared_for_itunes_radio>true</cleared_for_itunes_radio>
+                        <wholesale_price_tier>99</wholesale_price_tier>
+                    </product>
+                </products>
+                <genres>
+                    <genre code="INSTRUMENTAL-00"></genre>
+                </genres>
+                <artists>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <apple_id>1463644847</apple_id>
+                        <roles>
+                            <role>Performer</role>
+                        </roles>
+                        <primary>true</primary>
+                    </artist>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <roles>
+                            <role>Composer</role>
+                        </roles>
+                        <primary>false</primary>
+                    </artist>
+                </artists>
+                <publishers>
+                    <publisher>Lofi Publishing</publisher>
+                </publishers>
+                <isrc>UKZGC2408005</isrc>
+                <vendor_id>PADPIDA2020020514E_7316478676986_UKZGC2408005</vendor_id>
+                <copyright_pline>2024 Lofi Publishing</copyright_pline>
+                <explicit_content>none</explicit_content>
+                <label_name>Lofi Records</label_name>
+                <title>Fremont</title>
+                <title_version></title_version>
+                <volume_number>1</volume_number>
+                <track_number>3</track_number>
+                <audio_file>
+                    <file_name>45f73112-60ed-4924-aa65-ee13a40d00dc.flac</file_name>
+                    <size>7757721</size>
+                    <checksum type="md5">2F71BDC62EBBD3033B13BAF4020A40A9</checksum>
+                </audio_file>
+                <audio_language>zxx</audio_language>
+            </track>
+            <track>
+                <products>
+                    <product>
+                        <territory>WW</territory>
+                        <cleared_for_sale>true</cleared_for_sale>
+                        <cleared_for_stream>true</cleared_for_stream>
+                        <cleared_for_itunes_radio>true</cleared_for_itunes_radio>
+                        <wholesale_price_tier>99</wholesale_price_tier>
+                    </product>
+                </products>
+                <genres>
+                    <genre code="INSTRUMENTAL-00"></genre>
+                </genres>
+                <artists>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <apple_id>1463644847</apple_id>
+                        <roles>
+                            <role>Performer</role>
+                        </roles>
+                        <primary>true</primary>
+                    </artist>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <roles>
+                            <role>Composer</role>
+                        </roles>
+                        <primary>false</primary>
+                    </artist>
+                </artists>
+                <publishers>
+                    <publisher>Lofi Publishing</publisher>
+                </publishers>
+                <isrc>UKZGC2408006</isrc>
+                <vendor_id>PADPIDA2020020514E_7316478676986_UKZGC2408006</vendor_id>
+                <copyright_pline>2024 Lofi Publishing</copyright_pline>
+                <explicit_content>none</explicit_content>
+                <label_name>Lofi Records</label_name>
+                <title>Waning</title>
+                <title_version></title_version>
+                <volume_number>1</volume_number>
+                <track_number>4</track_number>
+                <audio_file>
+                    <file_name>39f0cc27-7cd2-4355-95e0-a4f824a0186e.flac</file_name>
+                    <size>11413402</size>
+                    <checksum type="md5">50F7DEF20F79F67C3236AD94E7ED009A</checksum>
+                </audio_file>
+                <audio_language>zxx</audio_language>
+            </track>
+            <track>
+                <products>
+                    <product>
+                        <territory>WW</territory>
+                        <cleared_for_sale>true</cleared_for_sale>
+                        <cleared_for_stream>true</cleared_for_stream>
+                        <cleared_for_itunes_radio>true</cleared_for_itunes_radio>
+                        <wholesale_price_tier>99</wholesale_price_tier>
+                    </product>
+                </products>
+                <genres>
+                    <genre code="INSTRUMENTAL-00"></genre>
+                </genres>
+                <artists>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <apple_id>1463644847</apple_id>
+                        <roles>
+                            <role>Performer</role>
+                        </roles>
+                        <primary>true</primary>
+                    </artist>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <roles>
+                            <role>Composer</role>
+                        </roles>
+                        <primary>false</primary>
+                    </artist>
+                </artists>
+                <publishers>
+                    <publisher>Lofi Publishing</publisher>
+                </publishers>
+                <isrc>UKZGC2408007</isrc>
+                <vendor_id>PADPIDA2020020514E_7316478676986_UKZGC2408007</vendor_id>
+                <copyright_pline>2024 Lofi Publishing</copyright_pline>
+                <explicit_content>none</explicit_content>
+                <label_name>Lofi Records</label_name>
+                <title>Santa Ynez River</title>
+                <title_version></title_version>
+                <volume_number>1</volume_number>
+                <track_number>5</track_number>
+                <audio_file>
+                    <file_name>ee5df39a-dbd3-40de-b4af-1b7d638c8c12.flac</file_name>
+                    <size>10967735</size>
+                    <checksum type="md5">A81CECDCEFE88A8C92328521CDA79A65</checksum>
+                </audio_file>
+                <audio_language>zxx</audio_language>
+            </track>
+            <track>
+                <products>
+                    <product>
+                        <territory>WW</territory>
+                        <cleared_for_sale>true</cleared_for_sale>
+                        <cleared_for_stream>true</cleared_for_stream>
+                        <cleared_for_itunes_radio>true</cleared_for_itunes_radio>
+                        <wholesale_price_tier>99</wholesale_price_tier>
+                    </product>
+                </products>
+                <genres>
+                    <genre code="INSTRUMENTAL-00"></genre>
+                </genres>
+                <artists>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <apple_id>1463644847</apple_id>
+                        <roles>
+                            <role>Performer</role>
+                        </roles>
+                        <primary>true</primary>
+                    </artist>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <roles>
+                            <role>Composer</role>
+                        </roles>
+                        <primary>false</primary>
+                    </artist>
+                </artists>
+                <publishers>
+                    <publisher>Lofi Publishing</publisher>
+                </publishers>
+                <isrc>UKZGC2408008</isrc>
+                <vendor_id>PADPIDA2020020514E_7316478676986_UKZGC2408008</vendor_id>
+                <copyright_pline>2024 Lofi Publishing</copyright_pline>
+                <explicit_content>none</explicit_content>
+                <label_name>Lofi Records</label_name>
+                <title>Sonder</title>
+                <title_version></title_version>
+                <volume_number>1</volume_number>
+                <track_number>6</track_number>
+                <audio_file>
+                    <file_name>bac7c824-a976-4767-b37e-49abbe8a1456.flac</file_name>
+                    <size>8558083</size>
+                    <checksum type="md5">6D55EF07845B247D55F9BF5BF2CFF7B5</checksum>
+                </audio_file>
+                <audio_language>zxx</audio_language>
+            </track>
+            <track>
+                <products>
+                    <product>
+                        <territory>WW</territory>
+                        <cleared_for_sale>true</cleared_for_sale>
+                        <cleared_for_stream>true</cleared_for_stream>
+                        <cleared_for_itunes_radio>true</cleared_for_itunes_radio>
+                        <wholesale_price_tier>99</wholesale_price_tier>
+                    </product>
+                </products>
+                <genres>
+                    <genre code="INSTRUMENTAL-00"></genre>
+                </genres>
+                <artists>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <apple_id>1463644847</apple_id>
+                        <roles>
+                            <role>Performer</role>
+                        </roles>
+                        <primary>true</primary>
+                    </artist>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <roles>
+                            <role>Composer</role>
+                        </roles>
+                        <primary>false</primary>
+                    </artist>
+                </artists>
+                <publishers>
+                    <publisher>Lofi Publishing</publisher>
+                </publishers>
+                <isrc>UKZGC2408009</isrc>
+                <vendor_id>PADPIDA2020020514E_7316478676986_UKZGC2408009</vendor_id>
+                <copyright_pline>2024 Lofi Publishing</copyright_pline>
+                <explicit_content>none</explicit_content>
+                <label_name>Lofi Records</label_name>
+                <title>Phases</title>
+                <title_version></title_version>
+                <volume_number>1</volume_number>
+                <track_number>7</track_number>
+                <audio_file>
+                    <file_name>0a35af23-508e-4432-a0ac-81b60d88a55e.flac</file_name>
+                    <size>11589134</size>
+                    <checksum type="md5">2BA2EA61D2827E5076DD41680F47BDE8</checksum>
+                </audio_file>
+                <audio_language>zxx</audio_language>
+            </track>
+            <track>
+                <products>
+                    <product>
+                        <territory>WW</territory>
+                        <cleared_for_sale>true</cleared_for_sale>
+                        <cleared_for_stream>true</cleared_for_stream>
+                        <cleared_for_itunes_radio>true</cleared_for_itunes_radio>
+                        <wholesale_price_tier>99</wholesale_price_tier>
+                    </product>
+                </products>
+                <genres>
+                    <genre code="INSTRUMENTAL-00"></genre>
+                </genres>
+                <artists>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <apple_id>1463644847</apple_id>
+                        <roles>
+                            <role>Performer</role>
+                        </roles>
+                        <primary>true</primary>
+                    </artist>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <roles>
+                            <role>Composer</role>
+                        </roles>
+                        <primary>false</primary>
+                    </artist>
+                </artists>
+                <publishers>
+                    <publisher>Lofi Publishing</publisher>
+                </publishers>
+                <isrc>UKZGC2408010</isrc>
+                <vendor_id>PADPIDA2020020514E_7316478676986_UKZGC2408010</vendor_id>
+                <copyright_pline>2024 Lofi Publishing</copyright_pline>
+                <explicit_content>none</explicit_content>
+                <label_name>Lofi Records</label_name>
+                <title>Smoke was rising</title>
+                <title_version></title_version>
+                <volume_number>1</volume_number>
+                <track_number>8</track_number>
+                <audio_file>
+                    <file_name>b05b085a-433a-4ab4-94d6-6b8a0fc74217.flac</file_name>
+                    <size>8194261</size>
+                    <checksum type="md5">EBAA91B26D399F50BA55EBD906A76CE3</checksum>
+                </audio_file>
+                <audio_language>zxx</audio_language>
+            </track>
+            <track>
+                <products>
+                    <product>
+                        <territory>WW</territory>
+                        <cleared_for_sale>true</cleared_for_sale>
+                        <cleared_for_stream>true</cleared_for_stream>
+                        <cleared_for_itunes_radio>true</cleared_for_itunes_radio>
+                        <wholesale_price_tier>99</wholesale_price_tier>
+                    </product>
+                </products>
+                <genres>
+                    <genre code="INSTRUMENTAL-00"></genre>
+                </genres>
+                <artists>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <apple_id>1463644847</apple_id>
+                        <roles>
+                            <role>Performer</role>
+                        </roles>
+                        <primary>true</primary>
+                    </artist>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <roles>
+                            <role>Composer</role>
+                        </roles>
+                        <primary>false</primary>
+                    </artist>
+                </artists>
+                <publishers>
+                    <publisher>Lofi Publishing</publisher>
+                </publishers>
+                <isrc>UKZGC2408011</isrc>
+                <vendor_id>PADPIDA2020020514E_7316478676986_UKZGC2408011</vendor_id>
+                <copyright_pline>2024 Lofi Publishing</copyright_pline>
+                <explicit_content>none</explicit_content>
+                <label_name>Lofi Records</label_name>
+                <title>Kites</title>
+                <title_version></title_version>
+                <volume_number>1</volume_number>
+                <track_number>9</track_number>
+                <audio_file>
+                    <file_name>b47d0cbb-0e89-447a-aea7-77e7de2cabdd.flac</file_name>
+                    <size>8124897</size>
+                    <checksum type="md5">731E4BFEB949437B3B1316F664F6F937</checksum>
+                </audio_file>
+                <audio_language>zxx</audio_language>
+            </track>
+            <track>
+                <products>
+                    <product>
+                        <territory>WW</territory>
+                        <cleared_for_sale>true</cleared_for_sale>
+                        <cleared_for_stream>true</cleared_for_stream>
+                        <cleared_for_itunes_radio>true</cleared_for_itunes_radio>
+                        <wholesale_price_tier>99</wholesale_price_tier>
+                    </product>
+                </products>
+                <genres>
+                    <genre code="INSTRUMENTAL-00"></genre>
+                </genres>
+                <artists>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <apple_id>1463644847</apple_id>
+                        <roles>
+                            <role>Performer</role>
+                        </roles>
+                        <primary>true</primary>
+                    </artist>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <roles>
+                            <role>Composer</role>
+                        </roles>
+                        <primary>false</primary>
+                    </artist>
+                </artists>
+                <publishers>
+                    <publisher>Lofi Publishing</publisher>
+                </publishers>
+                <isrc>UKZGC2408012</isrc>
+                <vendor_id>PADPIDA2020020514E_7316478676986_UKZGC2408012</vendor_id>
+                <copyright_pline>2024 Lofi Publishing</copyright_pline>
+                <explicit_content>none</explicit_content>
+                <label_name>Lofi Records</label_name>
+                <title>Shorebirds</title>
+                <title_version></title_version>
+                <volume_number>1</volume_number>
+                <track_number>10</track_number>
+                <audio_file>
+                    <file_name>5001f371-3a1c-45b4-99a9-b365726e2661.flac</file_name>
+                    <size>9526432</size>
+                    <checksum type="md5">4541F1F703B7326E6EF8D967D2B8753C</checksum>
+                </audio_file>
+                <audio_language>zxx</audio_language>
+            </track>
+            <track>
+                <products>
+                    <product>
+                        <territory>WW</territory>
+                        <cleared_for_sale>true</cleared_for_sale>
+                        <cleared_for_stream>true</cleared_for_stream>
+                        <cleared_for_itunes_radio>true</cleared_for_itunes_radio>
+                        <wholesale_price_tier>99</wholesale_price_tier>
+                    </product>
+                </products>
+                <genres>
+                    <genre code="INSTRUMENTAL-00"></genre>
+                </genres>
+                <artists>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <apple_id>1463644847</apple_id>
+                        <roles>
+                            <role>Performer</role>
+                        </roles>
+                        <primary>true</primary>
+                    </artist>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <roles>
+                            <role>Composer</role>
+                        </roles>
+                        <primary>false</primary>
+                    </artist>
+                </artists>
+                <publishers>
+                    <publisher>Lofi Publishing</publisher>
+                </publishers>
+                <isrc>UKZGC2408013</isrc>
+                <vendor_id>PADPIDA2020020514E_7316478676986_UKZGC2408013</vendor_id>
+                <copyright_pline>2024 Lofi Publishing</copyright_pline>
+                <explicit_content>none</explicit_content>
+                <label_name>Lofi Records</label_name>
+                <title>High Heights</title>
+                <title_version></title_version>
+                <volume_number>1</volume_number>
+                <track_number>11</track_number>
+                <audio_file>
+                    <file_name>9e8b3bbc-5ec4-4b07-908a-4b329d2e1c3d.flac</file_name>
+                    <size>9671715</size>
+                    <checksum type="md5">6102555803E12DAA35AF6740DDF0818A</checksum>
+                </audio_file>
+                <audio_language>zxx</audio_language>
+            </track>
+            <track>
+                <products>
+                    <product>
+                        <territory>WW</territory>
+                        <cleared_for_sale>true</cleared_for_sale>
+                        <cleared_for_stream>true</cleared_for_stream>
+                        <cleared_for_itunes_radio>true</cleared_for_itunes_radio>
+                        <wholesale_price_tier>99</wholesale_price_tier>
+                    </product>
+                </products>
+                <genres>
+                    <genre code="INSTRUMENTAL-00"></genre>
+                </genres>
+                <artists>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <apple_id>1463644847</apple_id>
+                        <roles>
+                            <role>Performer</role>
+                        </roles>
+                        <primary>true</primary>
+                    </artist>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <roles>
+                            <role>Composer</role>
+                        </roles>
+                        <primary>false</primary>
+                    </artist>
+                </artists>
+                <publishers>
+                    <publisher>Lofi Publishing</publisher>
+                </publishers>
+                <isrc>UKZGC2408014</isrc>
+                <vendor_id>PADPIDA2020020514E_7316478676986_UKZGC2408014</vendor_id>
+                <copyright_pline>2024 Lofi Publishing</copyright_pline>
+                <explicit_content>none</explicit_content>
+                <label_name>Lofi Records</label_name>
+                <title>In Passing</title>
+                <title_version></title_version>
+                <volume_number>1</volume_number>
+                <track_number>12</track_number>
+                <audio_file>
+                    <file_name>c40a9d03-6325-4afa-8198-dbce4fe5c295.flac</file_name>
+                    <size>9743955</size>
+                    <checksum type="md5">213C4E760877026201F75D716B7E3B84</checksum>
+                </audio_file>
+                <audio_language>zxx</audio_language>
+            </track>
+            <track>
+                <products>
+                    <product>
+                        <territory>WW</territory>
+                        <cleared_for_sale>true</cleared_for_sale>
+                        <cleared_for_stream>true</cleared_for_stream>
+                        <cleared_for_itunes_radio>true</cleared_for_itunes_radio>
+                        <wholesale_price_tier>99</wholesale_price_tier>
+                    </product>
+                </products>
+                <genres>
+                    <genre code="INSTRUMENTAL-00"></genre>
+                </genres>
+                <artists>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <apple_id>1463644847</apple_id>
+                        <roles>
+                            <role>Performer</role>
+                        </roles>
+                        <primary>true</primary>
+                    </artist>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <roles>
+                            <role>Composer</role>
+                        </roles>
+                        <primary>false</primary>
+                    </artist>
+                </artists>
+                <publishers>
+                    <publisher>Lofi Publishing</publisher>
+                </publishers>
+                <isrc>UKZGC2408015</isrc>
+                <vendor_id>PADPIDA2020020514E_7316478676986_UKZGC2408015</vendor_id>
+                <copyright_pline>2024 Lofi Publishing</copyright_pline>
+                <explicit_content>none</explicit_content>
+                <label_name>Lofi Records</label_name>
+                <title>Run River</title>
+                <title_version></title_version>
+                <volume_number>1</volume_number>
+                <track_number>13</track_number>
+                <audio_file>
+                    <file_name>2b620959-2118-46b6-839a-354381bf56c1.flac</file_name>
+                    <size>8419321</size>
+                    <checksum type="md5">08961946DD512E9716772B817BE110A2</checksum>
+                </audio_file>
+                <audio_language>zxx</audio_language>
+            </track>
+            <track>
+                <products>
+                    <product>
+                        <territory>WW</territory>
+                        <cleared_for_sale>true</cleared_for_sale>
+                        <cleared_for_stream>true</cleared_for_stream>
+                        <cleared_for_itunes_radio>true</cleared_for_itunes_radio>
+                        <wholesale_price_tier>99</wholesale_price_tier>
+                    </product>
+                </products>
+                <genres>
+                    <genre code="INSTRUMENTAL-00"></genre>
+                </genres>
+                <artists>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <apple_id>1463644847</apple_id>
+                        <roles>
+                            <role>Performer</role>
+                        </roles>
+                        <primary>true</primary>
+                    </artist>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <roles>
+                            <role>Composer</role>
+                        </roles>
+                        <primary>false</primary>
+                    </artist>
+                </artists>
+                <publishers>
+                    <publisher>Lofi Publishing</publisher>
+                </publishers>
+                <isrc>UKZGC2408016</isrc>
+                <vendor_id>PADPIDA2020020514E_7316478676986_UKZGC2408016</vendor_id>
+                <copyright_pline>2024 Lofi Publishing</copyright_pline>
+                <explicit_content>none</explicit_content>
+                <label_name>Lofi Records</label_name>
+                <title>Yesterday, tomorrow</title>
+                <title_version></title_version>
+                <volume_number>1</volume_number>
+                <track_number>14</track_number>
+                <audio_file>
+                    <file_name>e7a35872-60fc-4e4f-8bda-83a021538249.flac</file_name>
+                    <size>9809679</size>
+                    <checksum type="md5">25421410FB8FB0C023B87150CE76DA02</checksum>
+                </audio_file>
+                <audio_language>zxx</audio_language>
+            </track>
+            <track>
+                <products>
+                    <product>
+                        <territory>WW</territory>
+                        <cleared_for_sale>true</cleared_for_sale>
+                        <cleared_for_stream>true</cleared_for_stream>
+                        <cleared_for_itunes_radio>true</cleared_for_itunes_radio>
+                        <wholesale_price_tier>99</wholesale_price_tier>
+                    </product>
+                </products>
+                <genres>
+                    <genre code="INSTRUMENTAL-00"></genre>
+                </genres>
+                <artists>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <apple_id>1463644847</apple_id>
+                        <roles>
+                            <role>Performer</role>
+                        </roles>
+                        <primary>true</primary>
+                    </artist>
+                    <artist>
+                        <artist_name>Ellis Laifer</artist_name>
+                        <roles>
+                            <role>Composer</role>
+                        </roles>
+                        <primary>false</primary>
+                    </artist>
+                </artists>
+                <publishers>
+                    <publisher>Lofi Publishing</publisher>
+                </publishers>
+                <isrc>UKZGC2408017</isrc>
+                <vendor_id>PADPIDA2020020514E_7316478676986_UKZGC2408017</vendor_id>
+                <copyright_pline>2024 Lofi Publishing</copyright_pline>
+                <explicit_content>none</explicit_content>
+                <label_name>Lofi Records</label_name>
+                <title>Breakwater</title>
+                <title_version></title_version>
+                <volume_number>1</volume_number>
+                <track_number>15</track_number>
+                <audio_file>
+                    <file_name>e16fff59-406e-4daa-9542-64c679654e0c.flac</file_name>
+                    <size>8974389</size>
+                    <checksum type="md5">09B7B6C77D53C2ED1F544028F48874F1</checksum>
+                </audio_file>
+                <audio_language>zxx</audio_language>
+            </track>
+        </tracks>
+    </album>
+</package>

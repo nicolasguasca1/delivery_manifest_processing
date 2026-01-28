@@ -1,7 +1,7 @@
 import pandas as pd
 
 # ---------- SETTINGS ----------
-csv_file = "Orbital_Delivery_Schedule.csv"  # Replace with your actual CSV filename
+csv_file = "exports/Orbital_Media_Upstream_Export_December_2025.csv"  # Replace with your actual CSV filename
 # -----------------------------
 
 # Load the CSV
@@ -10,7 +10,7 @@ df = pd.read_csv(csv_file)
 # Create a pivot-style breakdown: rows = dsp_name, columns = product_status, values = counts
 breakdown = df.pivot_table(
     index="dsp_name",
-    columns="product_status",
+    columns="dsp_status",
     aggfunc="size",
     fill_value=0
 )

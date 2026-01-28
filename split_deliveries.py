@@ -8,16 +8,25 @@ Run:
 """
 
 from __future__ import annotations
-import os, sys, re, unicodedata, requests, difflib, textwrap, re
+import os, sys, re, unicodedata, requests, difflib, textwrap
 from pathlib import Path
+from collections import Counter
 import pandas as pd
 from tqdm import tqdm
 
 
 CHUNK_ROWS            = 250_000
-PRODUCT_STATUS_FILTER = "PUBLISHED"
 TMP_DIR               = Path("/tmp/dsp_split")
 OUTPUT_DIR            = Path("./out")
+STATUS_OUTPUT_DIRS    = {
+    "PUBLISHED": Path("./out"),            # keep existing location for published
+    "TAKENDOWN": Path("./out_takendown"),  # new folder for takedowns
+}
+LINE_TERM = "\r\n"          # use CRLF line endings in all CSV outputs
+STATUS_COLUMN_CANDIDATES = ("dsp_status", "product_status")
+UPC_COLUMN_CANDIDATES    = ("upc", "upc_code")
+MISSING_UPC_REPORT       = Path("./out_reports/missing_upcs.csv")
+
 
 
 # --------------------------------------------------------------------------- #
@@ -44,27 +53,76 @@ def slug(name: str) -> str:
     name = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
     return re.sub(r"\s+", " ", name).strip().upper()
 
+
+def normalize_status(value: str) -> str:
+    """Uppercase status and strip whitespace/underscores/hyphens for matching."""
+    return re.sub(r"[\\s_\\-]+", "", str(value)).upper()
+
+
+def normalize_upc(value: str) -> str:
+    """Canonicalise UPC strings so mapping is consistent."""
+    s = str(value).strip()
+    if s.endswith(".0"):   # common artefact when numbers are read as floats
+        s = s[:-2]
+    return s
+
+
+def detect_status_column(source_csv: Path) -> str:
+    """Return which status column the file exposes (prefer dsp_status)."""
+    header = pd.read_csv(source_csv, nrows=0)
+    for col in STATUS_COLUMN_CANDIDATES:
+        if col in header.columns:
+            return col
+    raise SystemExit(
+        f"❌ None of the expected status columns found "
+        f"({', '.join(STATUS_COLUMN_CANDIDATES)})"
+    )
+
+
+def detect_upc_column(source_csv: Path) -> str:
+    """Return the UPC column to use (prefer 'upc', fallback to 'upc_code')."""
+    header = pd.read_csv(source_csv, nrows=0)
+    for col in UPC_COLUMN_CANDIDATES:
+        if col in header.columns:
+            return col
+    raise SystemExit(
+        f"❌ None of the expected UPC columns found "
+        f"({', '.join(UPC_COLUMN_CANDIDATES)})"
+    )
+
+
+def load_upc_mapping(path: Path) -> dict[str, str]:
+    """Load UPC → releaseId mapping from the provided CSV."""
+    if not path.exists():
+        raise SystemExit(f"❌ UPC mapping file not found: {path}")
+    df = pd.read_csv(path, usecols=["upc", "releaseId"], dtype=str)
+    df["upc_norm"] = df["upc"].map(normalize_upc)
+    mapping = dict(zip(df["upc_norm"], df["releaseId"]))
+    if not mapping:
+        raise SystemExit(f"❌ UPC mapping file was empty: {path}")
+    return mapping
+
 # --------------------------------------------------------------------------- #
 #  Step to get a breakdown of the analysis                                    #
 # --------------------------------------------------------------------------- #
 
-def analyze_dsp_breakdown(source_csv: Path) -> None:
-    print("\n🔍 Generating DSP × Product Status Breakdown…\n")
+def analyze_dsp_breakdown(source_csv: Path, status_column: str) -> None:
+    print("\n🔍 Generating DSP × Status Breakdown…\n")
     try:
-        df = pd.read_csv(source_csv, usecols=["dsp_name", "product_status"])
+        df = pd.read_csv(source_csv, usecols=["dsp_name", status_column])
         pivot = df.pivot_table(
             index="dsp_name",
-            columns="product_status",
+            columns=status_column,
             aggfunc="size",
             fill_value=0
         )
-        print("✅ DSP-wise Product Status Breakdown:\n")
+        print("✅ DSP-wise Status Breakdown:\n")
         print(pivot)
 
         # Optionally export to disk
-        out_file = OUTPUT_DIR / "dsp_product_status_breakdown.csv"
+        out_file = OUTPUT_DIR / "dsp_status_breakdown.csv"
         OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-        pivot.to_csv(out_file)
+        pivot.to_csv(out_file,lineterminator=LINE_TERM)
         print(f"\n📤 Breakdown exported to: {out_file}")
 
     except Exception as e:
@@ -75,7 +133,7 @@ def analyze_dsp_breakdown(source_csv: Path) -> None:
 #  Step 0.  Call Revelator – return only ACTIVE stores                        #
 # --------------------------------------------------------------------------- #
 def get_active_dsps(token: str) -> dict[str, dict]:
-    url = "https://app-api.revelator.com/common/lookup/stores"
+    url = "https://api.revelator.com/common/lookup/stores"
     r   = requests.get(url, headers={"Authorization": f"Bearer {token}"}, timeout=30)
     r.raise_for_status()
     active: dict[str, dict] = {}
@@ -216,25 +274,32 @@ def interactive_reconcile(mapping: dict[str, str | None],
 # --------------------------------------------------------------------------- #
 def split_csv_by_mapping(src: Path,
                          mapping: dict[str, str],
-                         active_dsps: dict[str, dict]) -> list[Path]:
+                         active_dsps: dict[str, dict],
+                         status_column: str,
+                         upc_column: str,
+                         upc_map: dict[str, str]) -> tuple[list[Path], Path | None]:
     TMP_DIR.mkdir(exist_ok=True, parents=True)
-    OUTPUT_DIR.mkdir(exist_ok=True, parents=True)
+    status_tmp_dirs = {status: TMP_DIR / status.lower() for status in STATUS_OUTPUT_DIRS}
+    for d in status_tmp_dirs.values():
+        d.mkdir(exist_ok=True, parents=True)
+    for out_dir in STATUS_OUTPUT_DIRS.values():
+        out_dir.mkdir(exist_ok=True, parents=True)
+    missing_upcs: Counter[str] = Counter()
 
-    # ---- inside split_csv_by_mapping(), before streaming starts --------------
+    # ---- before streaming starts ---------------------------------------------
     duplicates = {}
-    for src, tgt in mapping.items():
+    for dsp_src, tgt in mapping.items():            # use a distinct name
         if tgt is None:
             continue
-        duplicates.setdefault(tgt, []).append(src)
+        duplicates.setdefault(tgt, []).append(dsp_src)
 
     for tgt, srcs in duplicates.items():
         if len(srcs) > 1:
             print(f"🔸  {len(srcs)} source DSP names map to '{tgt}': {', '.join(srcs)}")
 
-
     # quick‑lookup helpers
     map_to_slug = {src: slug(tgt) for src, tgt in mapping.items() if tgt}
-    buffers: dict[str, object] = {}
+    buffers: dict[tuple[str, str], object] = {}
 
     with tqdm(desc="Processing CSV", unit="rows") as pbar:
         for chunk in pd.read_csv(
@@ -244,42 +309,60 @@ def split_csv_by_mapping(src: Path,
                 on_bad_lines="skip",
         ):
             pbar.update(len(chunk))
-            chunk = chunk[chunk["product_status"] == PRODUCT_STATUS_FILTER]
+            chunk["_status_norm"] = chunk[status_column].map(normalize_status)
+            chunk = chunk[chunk["_status_norm"].isin(STATUS_OUTPUT_DIRS.keys())]
             if chunk.empty:
                 continue
             # replace dsp_name with canonical slug via mapping
             chunk["dsp_slug"] = chunk["dsp_name"].map(map_to_slug)
             chunk = chunk.dropna(subset=["dsp_slug"])
+            chunk["upc_norm"] = chunk[upc_column].map(normalize_upc)
+            chunk["release_id"] = chunk["upc_norm"].map(upc_map)
 
-            for canon, grp in chunk.groupby("dsp_slug"):
+            missing_mask = chunk["release_id"].isna()
+            if missing_mask.any():
+                missing_upcs.update(chunk.loc[missing_mask, "upc_norm"].value_counts().to_dict())
+            chunk = chunk.dropna(subset=["release_id"])
+
+            for (status_norm, canon), grp in chunk.groupby(["_status_norm", "dsp_slug"]):
                 if canon not in active_dsps:
                     # mapping error should never happen after confirmation
                     continue
-                fh = buffers.get(canon)
+                fh = buffers.get((status_norm, canon))
                 if fh is None:
                     safe_canon = safe_slug(canon)
-                    fh = (TMP_DIR / f"{safe_canon}.tmp").open("a", encoding="utf‑8")
-
-                    buffers[canon] = fh
-                grp["upc_code"].to_csv(fh, header=False, index=False)
+                    tmp_dir = status_tmp_dirs[status_norm]
+                    fh = (tmp_dir / f"{safe_canon}.tmp").open("a", encoding="utf‑8")
+                    buffers[(status_norm, canon)] = fh
+                grp["release_id"].to_csv(fh, header=False, index=False, lineterminator=LINE_TERM)
 
     for fh in buffers.values():
         fh.close()
 
     outputs: list[Path] = []
-    for canon, meta in active_dsps.items():
-        tmp = TMP_DIR / f"{canon}.tmp"
-        if not tmp.exists():
-            continue
-        safe_name = safe_slug(meta["name"])
-        dest = OUTPUT_DIR / f"{safe_name}_{meta['id']}_deliveries.csv"
-        (pd.read_csv(tmp, header=None, names=["upc"])
-            .drop_duplicates()
-            .sort_values("upc")
-            .to_csv(dest, header=False, index=False))
-        outputs.append(dest)
-        tmp.unlink(missing_ok=True)
-    return outputs
+    for status_norm, out_dir in STATUS_OUTPUT_DIRS.items():
+        tmp_dir = status_tmp_dirs[status_norm]
+        for canon, meta in active_dsps.items():
+            safe_canon = safe_slug(canon)
+            tmp = tmp_dir / f"{safe_canon}.tmp"
+
+            if not tmp.exists():
+                continue
+            safe_name = safe_slug(meta["name"])
+            dest = out_dir / f"{safe_name}_{meta['id']}_deliveries.csv"
+            (pd.read_csv(tmp, header=None, names=["release_id"])
+                .drop_duplicates()
+                .sort_values("release_id")
+                .to_csv(dest, header=False, index=False, lineterminator=LINE_TERM))
+            outputs.append(dest)
+            tmp.unlink(missing_ok=True)
+    missing_report: Path | None = None
+    if missing_upcs:
+        missing_report = MISSING_UPC_REPORT
+        missing_report.parent.mkdir(parents=True, exist_ok=True)
+        (pd.DataFrame(sorted(missing_upcs.items()), columns=["upc", "occurrences"])
+           .to_csv(missing_report, index=False, lineterminator=LINE_TERM))
+    return outputs, missing_report
 
 
 # --------------------------------------------------------------------------- #
@@ -292,17 +375,26 @@ def main() -> None:
     parser.add_argument("source_csv", type=Path, help="Path to input CSV")
     parser.add_argument("enterprise_id", type=int, help="Enterprise ID")
     parser.add_argument("--analyze", action="store_true", help="Show DSP breakdown only")
+    parser.add_argument("--upc-map", type=Path, default=Path("orbital_upcs_202512130445.csv"),
+                        help="CSV mapping UPC → releaseId (default: orbital_upcs_202512130445.csv)")
     args = parser.parse_args()
 
     if not args.source_csv.exists():
         sys.exit(f"❌ File not found: {args.source_csv}")
+
+    status_column = detect_status_column(args.source_csv)
+    upc_column    = detect_upc_column(args.source_csv)
+    upc_map       = load_upc_mapping(args.upc_map)
+    print(f"📑  Using status column: {status_column}")
+    print(f"🏷️  Using UPC column: {upc_column}")
+    print(f"🗂️  Loaded {len(upc_map):,} UPC → releaseId mappings from {args.upc_map}")
 
     token = os.getenv("REVELATOR_TOKEN")
     if not token:
         sys.exit("❌ Set REVELATOR_TOKEN environment variable first.")
 
     if args.analyze:
-        analyze_dsp_breakdown(args.source_csv)
+        analyze_dsp_breakdown(args.source_csv, status_column)
         return
 
     # Run full agent
@@ -320,13 +412,18 @@ def main() -> None:
     confirmed = interactive_reconcile(mapping, active_dsps)
 
     print("\n👍  Mapping confirmed – starting split.")
-    outputs = split_csv_by_mapping(args.source_csv, confirmed, active_dsps)
+    print("📂  Target statuses:",
+          ", ".join(f"{s} → {d}" for s, d in STATUS_OUTPUT_DIRS.items()))
+    outputs, missing_report = split_csv_by_mapping(args.source_csv, confirmed, active_dsps,
+                                                   status_column, upc_column, upc_map)
 
     print("\n✅  Completed. Generated files:")
     for p in outputs:
         print(f"   • {p}")
     if not outputs:
         print("⚠️  No rows matched criteria; no files written.")
+    if missing_report:
+        print(f"\n⚠️  {missing_report.name} generated for UPCs without a releaseId mapping: {missing_report}")
 
 if __name__ == "__main__":
     main()
