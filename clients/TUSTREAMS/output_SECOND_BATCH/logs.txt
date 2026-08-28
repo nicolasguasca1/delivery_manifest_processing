@@ -1,0 +1,575 @@
+nicolasguascasantamaria@MacBook-Pro-4 delivery_manifest_processing % python split_deliveries.py "clients/TUSTREAMS/source/TuStreamsDeliveryMatrix_SECOND_BATCH_NORMALIZED.csv" 952520 --upc-map "clients/TUSTREAMS/source/tustreams_batch_12_releases.csv" --analyze
+❌ No UPC column found. Expected one of (upc, upc_code); header was: upc_ean, 7digital, Adaptr (Feed.FM), Alibaba, Amazon HD, Amazon, AMI Entertainment, Anghami…
+nicolasguascasantamaria@MacBook-Pro-4 delivery_manifest_processing % python split_deliveries.py "clients/TUSTREAMS/source/TuStreamsDeliveryMatrix_SECOND_BATCH_NORMALIZED.csv" 952520 --upc-map "clients/TUSTREAMS/source/tustreams_batch_12_releases.csv" --analyze
+🧭  Detected layout: WIDE (delimiter: COMMA)
+🏷️  Using UPC column: upc
+📊  40 DSP columns: 7digital, Adaptr (Feed.FM), Alibaba, Amazon HD, Amazon, AMI Entertainment…
+🚫  Excluded column 'IN REV' – values are not delivery statuses (e.g. '601946182197')
+🗂️  Loaded 8,174 UPC → releaseId mappings from clients/TUSTREAMS/source/tustreams_batch_12_releases.csv
+
+🔍 Generating DSP × Status Breakdown…
+
+Scanning source: 650640rows [00:01, 456345.09rows/s]
+
+✅ DSP-wise Status Breakdown:
+
+status                          PUBLISHED  TAKEDOWN
+dsp_name                                           
+7digital                            11048      5218
+AMI Entertainment                   11054      5212
+AWA                                 11055      5211
+Adaptr (Feed.FM)                    11058      5208
+Alibaba                             11053      5213
+Amazon                               7561      8705
+Amazon HD                            3534     12732
+Anghami                             11051      5215
+Audible Magic - Fulfillment360      11043      5223
+Audiomack                           11052      5214
+Deezer                              10857      5409
+FLO                                 10992      5274
+Gracenote                           10820      5446
+JOOX                                11046      5220
+JioSaavn                            10947      5319
+KKBOX                               11047      5219
+Kuack Media                         11048      5218
+Lissen                              11037      5229
+Merlin Connect                          4     16262
+Meta (FB - IG - WA)                 11070      5196
+Mixcloud                            11053      5213
+NetEase                             10840      5426
+Pandora                             11063      5203
+Peloton                             11049      5217
+Slacker                             11050      5216
+SoundCloud                          11066      5200
+SoundExchange                       11024      5242
+Spotify                             11114      5152
+TIDAL                               11057      5209
+Tencent                             10842      5424
+TikTok                              11086      5180
+TouchTunes                          11056      5210
+Trebel                              10527      5739
+Tuned Global - Rythm.fm             11054      5212
+Udio                                 5126     11140
+YouTube Combined - TuStreams        10769      5497
+iHeartRadio                         11056      5210
+iMusica                             11065      5201
+iTunes                               7430      8836
+iTunes MFiT                          3547     12719
+
+📤 Files written:
+   • /Users/nicolasguascasantamaria/Desktop/SQL_Queries_and_scripting_filters/delivery_manifest_processing/out/dsp_status_breakdown.csv
+   • /Users/nicolasguascasantamaria/Desktop/SQL_Queries_and_scripting_filters/delivery_manifest_processing/out/column_classification.csv
+nicolasguascasantamaria@MacBook-Pro-4 delivery_manifest_processing % python split_deliveries.py "clients/TUSTREAMS/source/TuStreamsDeliveryMatrix_SECOND_BATCH_NORMALIZED.csv" 952520 --upc-map "clients/TUSTREAMS/source/tustreams_batch_12_releases.csv"         
+🧭  Detected layout: WIDE (delimiter: COMMA)
+🏷️  Using UPC column: upc
+📊  40 DSP columns: 7digital, Adaptr (Feed.FM), Alibaba, Amazon HD, Amazon, AMI Entertainment…
+🚫  Excluded column 'IN REV' – values are not delivery statuses (e.g. '601946182197')
+🗂️  Loaded 8,174 UPC → releaseId mappings from clients/TUSTREAMS/source/tustreams_batch_12_releases.csv
+🔐  Running as enterprise: 952520
+🔑  Fetching active DSPs …
+    → 32 active stores retrieved.
+🔍  Collecting DSP names from source …
+    → Found 40 unique DSP strings in file.
+
+========== MAPPING PREVIEW ==========
+ 1. 7digital                                 →  << UNMAPPED >>
+ 2. Adaptr (Feed.FM)                         →  << UNMAPPED >>
+ 3. Alibaba                                  →  << UNMAPPED >>
+ 4. Amazon                                   →  Amazon
+ 5. Amazon HD                                →  Amazon
+ 6. AMI Entertainment                        →  << UNMAPPED >>
+ 7. Anghami                                  →  Anghami
+ 8. Audible Magic - Fulfillment360           →  << UNMAPPED >>
+ 9. Audiomack                                →  Audiomack
+10. AWA                                      →  AWA
+11. Deezer                                   →  Deezer
+12. FLO                                      →  Flo
+13. Gracenote                                →  << UNMAPPED >>
+14. iHeartRadio                              →  iHeartRadio
+15. iMusica                                  →  iMusica
+16. iTunes                                   →  << UNMAPPED >>
+17. iTunes MFiT                              →  iTunes/Apple Music
+18. JioSaavn                                 →  Jiosaavn
+19. JOOX                                     →  JOOX
+20. KKBOX                                    →  KKBOX
+21. Kuack Media                              →  << UNMAPPED >>
+22. Lissen                                   →  << UNMAPPED >>
+23. Merlin Connect                           →  << UNMAPPED >>
+24. Meta (FB - IG - WA)                      →  << UNMAPPED >>
+25. Mixcloud                                 →  Mixcloud
+26. NetEase                                  →  NetEase
+27. Pandora                                  →  Pandora
+28. Peloton                                  →  Peloton
+29. Slacker                                  →  << UNMAPPED >>
+30. SoundCloud                               →  Soundcloud
+31. SoundExchange                            →  << UNMAPPED >>
+32. Spotify                                  →  Spotify
+33. Tencent                                  →  Tencent
+34. TIDAL                                    →  Tidal
+35. TikTok                                   →  TikTok
+36. TouchTunes                               →  << UNMAPPED >>
+37. Trebel                                   →  Trebel
+38. Tuned Global - Rythm.fm                  →  << UNMAPPED >>
+39. Udio                                     →  << UNMAPPED >>
+40. YouTube Combined - TuStreams             →  << UNMAPPED >>
+
+Type CONFIRMED to proceed, or a comma‑separated list of line numbers to edit: 1
+
+Mapping for: 7digital
+  a. Tidal
+  b. iMusica
+  c. Audiomack
+  m. manual entry
+  u. LEAVE UNMAPPED
+Select option: m
+
+Active DSP names (from API):
+Amazon, Anghami, Audiomack, AWA, Boomplay, Deezer, Facebook Audio Library,
+Facebook Rights Manager, Flo, iHeartRadio, iMusica, iTunes/Apple Music,
+Jiosaavn, JOOX, KKBOX, Lickd, Mixcloud, NetEase, Nuuday, Pandora, Peloton,
+Pretzel, Snap, Soundcloud, Spotify, Taobao, Tencent, Tidal, TikTok, Trebel,
+YouTube Content ID, YouTube Music
+Type exact DSP name, or "BACK" to return, or "EXIT" to abort: Snap
+
+========== MAPPING PREVIEW ==========
+ 1. 7digital                                 →  Snap
+ 2. Adaptr (Feed.FM)                         →  << UNMAPPED >>
+ 3. Alibaba                                  →  << UNMAPPED >>
+ 4. Amazon                                   →  Amazon
+ 5. Amazon HD                                →  Amazon
+ 6. AMI Entertainment                        →  << UNMAPPED >>
+ 7. Anghami                                  →  Anghami
+ 8. Audible Magic - Fulfillment360           →  << UNMAPPED >>
+ 9. Audiomack                                →  Audiomack
+10. AWA                                      →  AWA
+11. Deezer                                   →  Deezer
+12. FLO                                      →  Flo
+13. Gracenote                                →  << UNMAPPED >>
+14. iHeartRadio                              →  iHeartRadio
+15. iMusica                                  →  iMusica
+16. iTunes                                   →  << UNMAPPED >>
+17. iTunes MFiT                              →  iTunes/Apple Music
+18. JioSaavn                                 →  Jiosaavn
+19. JOOX                                     →  JOOX
+20. KKBOX                                    →  KKBOX
+21. Kuack Media                              →  << UNMAPPED >>
+22. Lissen                                   →  << UNMAPPED >>
+23. Merlin Connect                           →  << UNMAPPED >>
+24. Meta (FB - IG - WA)                      →  << UNMAPPED >>
+25. Mixcloud                                 →  Mixcloud
+26. NetEase                                  →  NetEase
+27. Pandora                                  →  Pandora
+28. Peloton                                  →  Peloton
+29. Slacker                                  →  << UNMAPPED >>
+30. SoundCloud                               →  Soundcloud
+31. SoundExchange                            →  << UNMAPPED >>
+32. Spotify                                  →  Spotify
+33. Tencent                                  →  Tencent
+34. TIDAL                                    →  Tidal
+35. TikTok                                   →  TikTok
+36. TouchTunes                               →  << UNMAPPED >>
+37. Trebel                                   →  Trebel
+38. Tuned Global - Rythm.fm                  →  << UNMAPPED >>
+39. Udio                                     →  << UNMAPPED >>
+40. YouTube Combined - TuStreams             →  << UNMAPPED >>
+
+Type CONFIRMED to proceed, or a comma‑separated list of line numbers to edit: 5
+
+Mapping for: Amazon HD
+  a. Amazon
+  b. Audiomack
+  m. manual entry
+  u. LEAVE UNMAPPED
+Select option: u
+
+========== MAPPING PREVIEW ==========
+ 1. 7digital                                 →  Snap
+ 2. Adaptr (Feed.FM)                         →  << UNMAPPED >>
+ 3. Alibaba                                  →  << UNMAPPED >>
+ 4. Amazon                                   →  Amazon
+ 5. Amazon HD                                →  << UNMAPPED >>
+ 6. AMI Entertainment                        →  << UNMAPPED >>
+ 7. Anghami                                  →  Anghami
+ 8. Audible Magic - Fulfillment360           →  << UNMAPPED >>
+ 9. Audiomack                                →  Audiomack
+10. AWA                                      →  AWA
+11. Deezer                                   →  Deezer
+12. FLO                                      →  Flo
+13. Gracenote                                →  << UNMAPPED >>
+14. iHeartRadio                              →  iHeartRadio
+15. iMusica                                  →  iMusica
+16. iTunes                                   →  << UNMAPPED >>
+17. iTunes MFiT                              →  iTunes/Apple Music
+18. JioSaavn                                 →  Jiosaavn
+19. JOOX                                     →  JOOX
+20. KKBOX                                    →  KKBOX
+21. Kuack Media                              →  << UNMAPPED >>
+22. Lissen                                   →  << UNMAPPED >>
+23. Merlin Connect                           →  << UNMAPPED >>
+24. Meta (FB - IG - WA)                      →  << UNMAPPED >>
+25. Mixcloud                                 →  Mixcloud
+26. NetEase                                  →  NetEase
+27. Pandora                                  →  Pandora
+28. Peloton                                  →  Peloton
+29. Slacker                                  →  << UNMAPPED >>
+30. SoundCloud                               →  Soundcloud
+31. SoundExchange                            →  << UNMAPPED >>
+32. Spotify                                  →  Spotify
+33. Tencent                                  →  Tencent
+34. TIDAL                                    →  Tidal
+35. TikTok                                   →  TikTok
+36. TouchTunes                               →  << UNMAPPED >>
+37. Trebel                                   →  Trebel
+38. Tuned Global - Rythm.fm                  →  << UNMAPPED >>
+39. Udio                                     →  << UNMAPPED >>
+40. YouTube Combined - TuStreams             →  << UNMAPPED >>
+
+Type CONFIRMED to proceed, or a comma‑separated list of line numbers to edit: 16
+
+Mapping for: iTunes
+  a. iTunes/Apple Music
+  b. iMusica
+  c. YouTube Music
+  d. Trebel
+  e. Tencent
+  f. NetEase
+  m. manual entry
+  u. LEAVE UNMAPPED
+Select option: a
+
+========== MAPPING PREVIEW ==========
+ 1. 7digital                                 →  Snap
+ 2. Adaptr (Feed.FM)                         →  << UNMAPPED >>
+ 3. Alibaba                                  →  << UNMAPPED >>
+ 4. Amazon                                   →  Amazon
+ 5. Amazon HD                                →  << UNMAPPED >>
+ 6. AMI Entertainment                        →  << UNMAPPED >>
+ 7. Anghami                                  →  Anghami
+ 8. Audible Magic - Fulfillment360           →  << UNMAPPED >>
+ 9. Audiomack                                →  Audiomack
+10. AWA                                      →  AWA
+11. Deezer                                   →  Deezer
+12. FLO                                      →  Flo
+13. Gracenote                                →  << UNMAPPED >>
+14. iHeartRadio                              →  iHeartRadio
+15. iMusica                                  →  iMusica
+16. iTunes                                   →  iTunes/Apple Music
+17. iTunes MFiT                              →  iTunes/Apple Music
+18. JioSaavn                                 →  Jiosaavn
+19. JOOX                                     →  JOOX
+20. KKBOX                                    →  KKBOX
+21. Kuack Media                              →  << UNMAPPED >>
+22. Lissen                                   →  << UNMAPPED >>
+23. Merlin Connect                           →  << UNMAPPED >>
+24. Meta (FB - IG - WA)                      →  << UNMAPPED >>
+25. Mixcloud                                 →  Mixcloud
+26. NetEase                                  →  NetEase
+27. Pandora                                  →  Pandora
+28. Peloton                                  →  Peloton
+29. Slacker                                  →  << UNMAPPED >>
+30. SoundCloud                               →  Soundcloud
+31. SoundExchange                            →  << UNMAPPED >>
+32. Spotify                                  →  Spotify
+33. Tencent                                  →  Tencent
+34. TIDAL                                    →  Tidal
+35. TikTok                                   →  TikTok
+36. TouchTunes                               →  << UNMAPPED >>
+37. Trebel                                   →  Trebel
+38. Tuned Global - Rythm.fm                  →  << UNMAPPED >>
+39. Udio                                     →  << UNMAPPED >>
+40. YouTube Combined - TuStreams             →  << UNMAPPED >>
+
+Type CONFIRMED to proceed, or a comma‑separated list of line numbers to edit: 17
+
+Mapping for: iTunes MFiT
+  a. iTunes/Apple Music
+  b. YouTube Music
+  c. TikTok
+  d. iMusica
+  m. manual entry
+  u. LEAVE UNMAPPED
+Select option: u
+
+========== MAPPING PREVIEW ==========
+ 1. 7digital                                 →  Snap
+ 2. Adaptr (Feed.FM)                         →  << UNMAPPED >>
+ 3. Alibaba                                  →  << UNMAPPED >>
+ 4. Amazon                                   →  Amazon
+ 5. Amazon HD                                →  << UNMAPPED >>
+ 6. AMI Entertainment                        →  << UNMAPPED >>
+ 7. Anghami                                  →  Anghami
+ 8. Audible Magic - Fulfillment360           →  << UNMAPPED >>
+ 9. Audiomack                                →  Audiomack
+10. AWA                                      →  AWA
+11. Deezer                                   →  Deezer
+12. FLO                                      →  Flo
+13. Gracenote                                →  << UNMAPPED >>
+14. iHeartRadio                              →  iHeartRadio
+15. iMusica                                  →  iMusica
+16. iTunes                                   →  iTunes/Apple Music
+17. iTunes MFiT                              →  << UNMAPPED >>
+18. JioSaavn                                 →  Jiosaavn
+19. JOOX                                     →  JOOX
+20. KKBOX                                    →  KKBOX
+21. Kuack Media                              →  << UNMAPPED >>
+22. Lissen                                   →  << UNMAPPED >>
+23. Merlin Connect                           →  << UNMAPPED >>
+24. Meta (FB - IG - WA)                      →  << UNMAPPED >>
+25. Mixcloud                                 →  Mixcloud
+26. NetEase                                  →  NetEase
+27. Pandora                                  →  Pandora
+28. Peloton                                  →  Peloton
+29. Slacker                                  →  << UNMAPPED >>
+30. SoundCloud                               →  Soundcloud
+31. SoundExchange                            →  << UNMAPPED >>
+32. Spotify                                  →  Spotify
+33. Tencent                                  →  Tencent
+34. TIDAL                                    →  Tidal
+35. TikTok                                   →  TikTok
+36. TouchTunes                               →  << UNMAPPED >>
+37. Trebel                                   →  Trebel
+38. Tuned Global - Rythm.fm                  →  << UNMAPPED >>
+39. Udio                                     →  << UNMAPPED >>
+40. YouTube Combined - TuStreams             →  << UNMAPPED >>
+
+Type CONFIRMED to proceed, or a comma‑separated list of line numbers to edit: 24
+
+Mapping for: Meta (FB - IG - WA)
+  m. manual entry
+  u. LEAVE UNMAPPED
+Select option: m
+
+Active DSP names (from API):
+Amazon, Anghami, Audiomack, AWA, Boomplay, Deezer, Facebook Audio Library,
+Facebook Rights Manager, Flo, iHeartRadio, iMusica, iTunes/Apple Music,
+Jiosaavn, JOOX, KKBOX, Lickd, Mixcloud, NetEase, Nuuday, Pandora, Peloton,
+Pretzel, Snap, Soundcloud, Spotify, Taobao, Tencent, Tidal, TikTok, Trebel,
+YouTube Content ID, YouTube Music
+Type exact DSP name, or "BACK" to return, or "EXIT" to abort: Faceboook Audio Library 
+⚠️  Name not found. Try again, or type BACK or EXIT.
+Type exact DSP name, or "BACK" to return, or "EXIT" to abort: Facebook Audio Library             
+
+========== MAPPING PREVIEW ==========
+ 1. 7digital                                 →  Snap
+ 2. Adaptr (Feed.FM)                         →  << UNMAPPED >>
+ 3. Alibaba                                  →  << UNMAPPED >>
+ 4. Amazon                                   →  Amazon
+ 5. Amazon HD                                →  << UNMAPPED >>
+ 6. AMI Entertainment                        →  << UNMAPPED >>
+ 7. Anghami                                  →  Anghami
+ 8. Audible Magic - Fulfillment360           →  << UNMAPPED >>
+ 9. Audiomack                                →  Audiomack
+10. AWA                                      →  AWA
+11. Deezer                                   →  Deezer
+12. FLO                                      →  Flo
+13. Gracenote                                →  << UNMAPPED >>
+14. iHeartRadio                              →  iHeartRadio
+15. iMusica                                  →  iMusica
+16. iTunes                                   →  iTunes/Apple Music
+17. iTunes MFiT                              →  << UNMAPPED >>
+18. JioSaavn                                 →  Jiosaavn
+19. JOOX                                     →  JOOX
+20. KKBOX                                    →  KKBOX
+21. Kuack Media                              →  << UNMAPPED >>
+22. Lissen                                   →  << UNMAPPED >>
+23. Merlin Connect                           →  << UNMAPPED >>
+24. Meta (FB - IG - WA)                      →  Facebook Audio Library
+25. Mixcloud                                 →  Mixcloud
+26. NetEase                                  →  NetEase
+27. Pandora                                  →  Pandora
+28. Peloton                                  →  Peloton
+29. Slacker                                  →  << UNMAPPED >>
+30. SoundCloud                               →  Soundcloud
+31. SoundExchange                            →  << UNMAPPED >>
+32. Spotify                                  →  Spotify
+33. Tencent                                  →  Tencent
+34. TIDAL                                    →  Tidal
+35. TikTok                                   →  TikTok
+36. TouchTunes                               →  << UNMAPPED >>
+37. Trebel                                   →  Trebel
+38. Tuned Global - Rythm.fm                  →  << UNMAPPED >>
+39. Udio                                     →  << UNMAPPED >>
+40. YouTube Combined - TuStreams             →  << UNMAPPED >>
+
+Type CONFIRMED to proceed, or a comma‑separated list of line numbers to edit: 39
+
+Mapping for: Udio
+  a. Audiomack
+  b. iHeartRadio
+  c. TikTok
+  d. Pandora
+  e. Mixcloud
+  f. Jiosaavn
+  m. manual entry
+  u. LEAVE UNMAPPED
+Select option: u
+
+========== MAPPING PREVIEW ==========
+ 1. 7digital                                 →  Snap
+ 2. Adaptr (Feed.FM)                         →  << UNMAPPED >>
+ 3. Alibaba                                  →  << UNMAPPED >>
+ 4. Amazon                                   →  Amazon
+ 5. Amazon HD                                →  << UNMAPPED >>
+ 6. AMI Entertainment                        →  << UNMAPPED >>
+ 7. Anghami                                  →  Anghami
+ 8. Audible Magic - Fulfillment360           →  << UNMAPPED >>
+ 9. Audiomack                                →  Audiomack
+10. AWA                                      →  AWA
+11. Deezer                                   →  Deezer
+12. FLO                                      →  Flo
+13. Gracenote                                →  << UNMAPPED >>
+14. iHeartRadio                              →  iHeartRadio
+15. iMusica                                  →  iMusica
+16. iTunes                                   →  iTunes/Apple Music
+17. iTunes MFiT                              →  << UNMAPPED >>
+18. JioSaavn                                 →  Jiosaavn
+19. JOOX                                     →  JOOX
+20. KKBOX                                    →  KKBOX
+21. Kuack Media                              →  << UNMAPPED >>
+22. Lissen                                   →  << UNMAPPED >>
+23. Merlin Connect                           →  << UNMAPPED >>
+24. Meta (FB - IG - WA)                      →  Facebook Audio Library
+25. Mixcloud                                 →  Mixcloud
+26. NetEase                                  →  NetEase
+27. Pandora                                  →  Pandora
+28. Peloton                                  →  Peloton
+29. Slacker                                  →  << UNMAPPED >>
+30. SoundCloud                               →  Soundcloud
+31. SoundExchange                            →  << UNMAPPED >>
+32. Spotify                                  →  Spotify
+33. Tencent                                  →  Tencent
+34. TIDAL                                    →  Tidal
+35. TikTok                                   →  TikTok
+36. TouchTunes                               →  << UNMAPPED >>
+37. Trebel                                   →  Trebel
+38. Tuned Global - Rythm.fm                  →  << UNMAPPED >>
+39. Udio                                     →  << UNMAPPED >>
+40. YouTube Combined - TuStreams             →  << UNMAPPED >>
+
+Type CONFIRMED to proceed, or a comma‑separated list of line numbers to edit: 40
+
+Mapping for: YouTube Combined - TuStreams
+  a. YouTube Content ID
+  b. YouTube Music
+  m. manual entry
+  u. LEAVE UNMAPPED
+Select option: a
+
+========== MAPPING PREVIEW ==========
+ 1. 7digital                                 →  Snap
+ 2. Adaptr (Feed.FM)                         →  << UNMAPPED >>
+ 3. Alibaba                                  →  << UNMAPPED >>
+ 4. Amazon                                   →  Amazon
+ 5. Amazon HD                                →  << UNMAPPED >>
+ 6. AMI Entertainment                        →  << UNMAPPED >>
+ 7. Anghami                                  →  Anghami
+ 8. Audible Magic - Fulfillment360           →  << UNMAPPED >>
+ 9. Audiomack                                →  Audiomack
+10. AWA                                      →  AWA
+11. Deezer                                   →  Deezer
+12. FLO                                      →  Flo
+13. Gracenote                                →  << UNMAPPED >>
+14. iHeartRadio                              →  iHeartRadio
+15. iMusica                                  →  iMusica
+16. iTunes                                   →  iTunes/Apple Music
+17. iTunes MFiT                              →  << UNMAPPED >>
+18. JioSaavn                                 →  Jiosaavn
+19. JOOX                                     →  JOOX
+20. KKBOX                                    →  KKBOX
+21. Kuack Media                              →  << UNMAPPED >>
+22. Lissen                                   →  << UNMAPPED >>
+23. Merlin Connect                           →  << UNMAPPED >>
+24. Meta (FB - IG - WA)                      →  Facebook Audio Library
+25. Mixcloud                                 →  Mixcloud
+26. NetEase                                  →  NetEase
+27. Pandora                                  →  Pandora
+28. Peloton                                  →  Peloton
+29. Slacker                                  →  << UNMAPPED >>
+30. SoundCloud                               →  Soundcloud
+31. SoundExchange                            →  << UNMAPPED >>
+32. Spotify                                  →  Spotify
+33. Tencent                                  →  Tencent
+34. TIDAL                                    →  Tidal
+35. TikTok                                   →  TikTok
+36. TouchTunes                               →  << UNMAPPED >>
+37. Trebel                                   →  Trebel
+38. Tuned Global - Rythm.fm                  →  << UNMAPPED >>
+39. Udio                                     →  << UNMAPPED >>
+40. YouTube Combined - TuStreams             →  YouTube Content ID
+
+Type CONFIRMED to proceed, or a comma‑separated list of line numbers to edit: CONFIRMED
+⚠️  15 DSP(s) will be skipped because they are unmapped:
+   • Adaptr (Feed.FM)
+   • Alibaba
+   • Amazon HD
+   • AMI Entertainment
+   • Audible Magic - Fulfillment360
+   • Gracenote
+   • iTunes MFiT
+   • Kuack Media
+   • Lissen
+   • Merlin Connect
+   • Slacker
+   • SoundExchange
+   • TouchTunes
+   • Tuned Global - Rythm.fm
+   • Udio
+
+👍  Mapping confirmed – starting split.
+📂  Target statuses: PUBLISHED → out, TAKENDOWN → out_takendown
+Processing CSV: 650640rows [00:01, 496956.23rows/s]
+
+✅  Completed. Generated files:
+   • out/ITUNES_APPLE MUSIC_1_deliveries.csv
+   • out/DEEZER_7_deliveries.csv
+   • out/SPOTIFY_9_deliveries.csv
+   • out/TIDAL_14_deliveries.csv
+   • out/AMAZON_17_deliveries.csv
+   • out/PANDORA_41_deliveries.csv
+   • out/KKBOX_45_deliveries.csv
+   • out/IMUSICA_52_deliveries.csv
+   • out/SOUNDCLOUD_68_deliveries.csv
+   • out/IHEARTRADIO_85_deliveries.csv
+   • out/ANGHAMI_91_deliveries.csv
+   • out/JIOSAAVN_110_deliveries.csv
+   • out/AWA_130_deliveries.csv
+   • out/TENCENT_208_deliveries.csv
+   • out/NETEASE_264_deliveries.csv
+   • out/YOUTUBE CONTENT ID_307_deliveries.csv
+   • out/FACEBOOK AUDIO LIBRARY_309_deliveries.csv
+   • out/MIXCLOUD_315_deliveries.csv
+   • out/TIKTOK_319_deliveries.csv
+   • out/SNAP_323_deliveries.csv
+   • out/PELOTON_324_deliveries.csv
+   • out/AUDIOMACK_334_deliveries.csv
+   • out/TREBEL_362_deliveries.csv
+   • out/JOOX_371_deliveries.csv
+   • out/FLO_416_deliveries.csv
+   • out_takendown/ITUNES_APPLE MUSIC_1_deliveries.csv
+   • out_takendown/DEEZER_7_deliveries.csv
+   • out_takendown/SPOTIFY_9_deliveries.csv
+   • out_takendown/TIDAL_14_deliveries.csv
+   • out_takendown/AMAZON_17_deliveries.csv
+   • out_takendown/PANDORA_41_deliveries.csv
+   • out_takendown/KKBOX_45_deliveries.csv
+   • out_takendown/IMUSICA_52_deliveries.csv
+   • out_takendown/SOUNDCLOUD_68_deliveries.csv
+   • out_takendown/IHEARTRADIO_85_deliveries.csv
+   • out_takendown/ANGHAMI_91_deliveries.csv
+   • out_takendown/JIOSAAVN_110_deliveries.csv
+   • out_takendown/AWA_130_deliveries.csv
+   • out_takendown/TENCENT_208_deliveries.csv
+   • out_takendown/NETEASE_264_deliveries.csv
+   • out_takendown/YOUTUBE CONTENT ID_307_deliveries.csv
+   • out_takendown/FACEBOOK AUDIO LIBRARY_309_deliveries.csv
+   • out_takendown/MIXCLOUD_315_deliveries.csv
+   • out_takendown/TIKTOK_319_deliveries.csv
+   • out_takendown/SNAP_323_deliveries.csv
+   • out_takendown/PELOTON_324_deliveries.csv
+   • out_takendown/AUDIOMACK_334_deliveries.csv
+   • out_takendown/TREBEL_362_deliveries.csv
+   • out_takendown/JOOX_371_deliveries.csv
+   • out_takendown/FLO_416_deliveries.csv
+
+⚠️  missing_upcs.csv generated for UPCs without a releaseId mapping: out_reports/missing_upcs.csv
+nicolasguascasantamaria@MacBook-Pro-4 delivery_manifest_processing % 
